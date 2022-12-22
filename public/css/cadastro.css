@@ -1,0 +1,19 @@
+
+.cad{
+    width: 400px;
+}
+.fundoCad{
+    background: linear-gradient(to bottom, #3333ff 0%, #66ccff 100%);
+}
+.formCad input{
+    display: block;
+    margin: 6px;
+    width: 100%;
+    padding: 10px;
+
+    
+
+}
+.formCad label{
+    color: white;
+}
