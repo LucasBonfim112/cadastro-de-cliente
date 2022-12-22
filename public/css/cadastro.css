@@ -1,19 +1,24 @@
-
-.cad{
+.cad {
     width: 400px;
+    padding: 10px;
+    box-shadow: 10px 15px 30px -10px #340241;
 }
-.fundoCad{
+
+.cad h2 {
+    color: white;
+}
+
+.fundoCad {
     background: linear-gradient(to bottom, #3333ff 0%, #66ccff 100%);
 }
-.formCad input{
+
+.formCad input {
     display: block;
-    margin: 6px;
-    width: 100%;
+    margin-top: 7px;
+    width: 98%;
     padding: 10px;
-
-    
-
 }
-.formCad label{
+
+.formCad label {
     color: white;
 }
