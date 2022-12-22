@@ -2,7 +2,7 @@
 namespace src;
 
 class Config {
-    const BASE_DIR = '/mvc/public';
+    const BASE_DIR = '/cadastro-de-cliente/public';
 
     const DB_DRIVER = 'pgsql';
     const DB_HOST = 'localhost';
