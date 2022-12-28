@@ -4,10 +4,6 @@
     margin-right: 50px;
 }
 
-.fundo {
-    background: linear-gradient(to bottom, #3333ff 0%, #66ccff 100%);
-}
-
 .formLogin input {
     border-radius: 10px;
     display: block;

@@ -8,3 +8,4 @@ $router->post('/login_acao', 'LoginController@login_acao');
 $router->get('/cadastro', 'CadastroController@index');
 $router->post('/cadastrar', 'CadastroController@cadastrar');
 $router->get('/sair', 'SairController@sair');
+$router->get('/clientes', 'ClientesController@lista_cliente');

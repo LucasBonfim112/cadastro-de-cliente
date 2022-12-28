@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="../public/css/cadastro.css">
 <?php $render('header'); ?>
-<body class="fundoCad">
+<?php $render('menu'); ?>
+
     <main>
         <div class="position-absolute top-50 start-50 translate-middle cad  ">
             <h2 class="text-center">Cadastro de Clientes</h2>
