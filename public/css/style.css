@@ -17,6 +17,5 @@
 
 .b {
     margin: 0;
-    height: 300px;
-    background: linear-gradient(to bottom, #3333ff 0%, #66ccff 100%)
+    background-color: white;
 }

@@ -6,14 +6,13 @@
             <div class="position-sticky pt-3 sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-
-                        <a class="nav-link active btn-primary" aria-current="page" href="<?= $base; ?>/cadastro">
+                        <a class="nav-link active btn-light" aria-current="page" href="<?= $base; ?>/cadastro">
                             <span> <i class="bi bi-card-text"></i></span>
-                            cadastro
+                            Cadastro
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  active btn-primary" href="<?= $base; ?>/clientes">
+                        <a class="nav-link  active btn-light" href="<?= $base; ?>/clientes">
                             <span><i class="bi bi-people-fill"></i></span>
                             Clientes
                         </a>
