@@ -21,7 +21,7 @@ class Login extends Model
         if ($result != false) {
             $_SESSION['idusuario'] = $result['idusuario'];
             $_SESSION['token'] = 'TOKEN';
-            
+
             header('Location: ./cadastro');
         } else {
             header('Location: ./');
