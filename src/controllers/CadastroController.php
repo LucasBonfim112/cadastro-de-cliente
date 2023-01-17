@@ -29,7 +29,7 @@ class CadastroController extends Controller
         if (!empty($nome) && !empty($cpf_cnpj) && !empty($idade) && !empty($data)) {
 
             $cadastro->cadastrar($nome, $cpf_cnpj, $idade, $data);
-            header('Location: cadastro');
+            header('Location: clientes');
         } else {
             header('Location: cadastro');
             echo 'Preencha todos os campos';
