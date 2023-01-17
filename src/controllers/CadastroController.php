@@ -4,6 +4,7 @@ namespace src\controllers;
 
 use \core\Controller;
 use src\models\Cadastro;
+use src\models\Clientes;
 
 class CadastroController extends Controller
 {
@@ -20,19 +21,42 @@ class CadastroController extends Controller
     }
     public function cadastrar()
     {
+
         $cadastro = new Cadastro;
         $nome  = $_POST['nome'];
-        $cpf_cnpj  = $_POST['cpf_cnpj'];
+        $cpf_cnpj  = preg_replace('/\D/', '', $_POST['cpf_cnpj']);
         $idade  = $_POST['idade'];
         $data  = $_POST['data'];
 
-        if (!empty($nome) && !empty($cpf_cnpj) && !empty($idade) && !empty($data)) {
 
-            $cadastro->cadastrar($nome, $cpf_cnpj, $idade, $data);
-            header('Location: clientes');
-        } else {
-            header('Location: cadastro');
-            echo 'Preencha todos os campos';
+        if (strlen($cpf_cnpj) == '11') {
+            $cpf = $cpf_cnpj;
+
+            if (!empty($nome) && !empty($cpf_cnpj) && !empty($idade) && !empty($data) && strlen($cpf) == '11') {
+                $cadastro->cadastrar($nome, $cpf_cnpj, $idade, $data);
+                header('Location: 404');
+            }
+        } else if (strlen($cpf_cnpj) == '14') {
+            $cnpj = $cpf_cnpj;
+
+            if (!empty($nome) && !empty($cpf_cnpj) && !empty($idade) && !empty($data) && strlen($cnpj) == '14') {
+                $cadastro->cadastrar($nome, $cpf_cnpj, $idade, $data);
+                header('Location: clientes');
+            }
         }
+
+
+
+
+
+
+
+        // if (!empty($nome) && !empty($cpf_cnpj) && !empty($idade) && !empty($data) && strlen($cpf_cnpj) == '14') {
+        //     $cadastro->cadastrar($nome, $cpf_cnpj, $idade, $data);
+        //     header('Location: clientes');
+        // } else {
+        //     header('Location: cadastro');
+        //     echo 'Preencha todos os campos';
+        // }
     }
 }

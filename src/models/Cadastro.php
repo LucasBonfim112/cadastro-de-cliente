@@ -23,7 +23,7 @@ class Cadastro extends Model
                 '$cpf_cnpj',
                  $idade, 
                 '$data'
-            )
+            ) ON CONFLICT ON CONSTRAINT clientes_pk DO NOTHING
            ");
             $sql->execute();
             $result = $sql->fetchAll(PDO::FETCH_ASSOC);

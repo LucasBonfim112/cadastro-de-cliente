@@ -10,7 +10,7 @@
             <input type="text" class="" id="inputEmail4" name="nome" placeholder="Seu Nome">
 
             <label for="inputPassword4">cpf ou cnpj</label>
-            <input type="text" class="" id="inputPassword4" name="cpf_cnpj" placeholder="cpf_cnpj">
+            <input type="text" class="" id="cpfcnpj" name="cpf_cnpj" placeholder="cpf_cnpj">
 
             <label for="inputAddress">idade</label>
             <input type="text" class="" id="inputAddress" name="idade" placeholder="idade">
@@ -22,4 +22,5 @@
         </form>
     </div>
 </main>
+<script defer src="js/cadastro.js"></script>
 <?php $render('footer'); ?>

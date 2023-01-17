@@ -5,6 +5,23 @@ initEventFind();
 $(document).ready(function () {
     listar()
 })
+
+function formataCPF(cpf, lg) {
+    if (lg == 11) {
+        cpf = cpf.replace(/[^\d]/g, "");
+        return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+
+    } else {
+        return cpf.replace(/\D/g, '')
+            .replace(/^(\d{2})(\d{3})?(\d{3})?(\d{4})?(\d{2})?/, "$1.$2.$3/$4-$5");
+    }
+
+
+
+
+}
+
+
 function listar() {
     $.ajax({
         type: 'get',
@@ -15,7 +32,7 @@ function listar() {
             if (res != '') {
                 tab.html('');
                 $.each(res, function (i, el) {
-                    tab.append("<tr class='conteudo linha" + el.idcliente + "'><td><a href='editar?id=" + el.idcliente + "' type='button' style='color: blue;'><i class='bi bi-pencil'></i></a> </td><td>" + el.nome + "</td><td>" + el.cpf_cnpj + "</td><td>" + el.idade + "</td><td>" + el.nascimento + "</td><td><a onclick='excluir(event, " + el.idcliente + ")' type='button' style='color: red;'><i class='bi bi-trash'></i></a></td></tr> ")
+                    tab.append("<tr class='conteudo linha" + el.idcliente + "'><td><a href='editar?id=" + el.idcliente + "' type='button' style='color: blue;'><i class='bi bi-pencil'></i></a> </td><td>" + el.nome + "</td><td>" + formataCPF(el.cpf_cnpj, el.cpf_cnpj.length) + "</td><td>" + el.idade + "</td><td>" + el.nascimento + "</td><td><a onclick='excluir(event, " + el.idcliente + ")' type='button' style='color: red;'><i class='bi bi-trash'></i></a></td></tr> ")
                 })
             }
         }
