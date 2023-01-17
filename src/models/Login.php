@@ -11,7 +11,7 @@ class Login extends Model
 
     public function verificarLogin($login, $senha)
     {
-        //verificar
+       
         $sql = Database::getInstance()->prepare("SELECT * FROM gazin.usuario WHERE login = :login AND senha = :senha");
         $sql->bindValue(':login', $login);
         $sql->bindValue(':senha', $senha);

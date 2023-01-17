@@ -1,10 +1,8 @@
 <?php
 
 namespace src\controllers;
-
 use \core\Controller;
 use src\models\Cadastro;
-use src\models\Clientes;
 
 class CadastroController extends Controller
 {
@@ -28,7 +26,6 @@ class CadastroController extends Controller
         $idade  = $_POST['idade'];
         $data  = $_POST['data'];
 
-
         if (strlen($cpf_cnpj) == '11') {
             $cpf = $cpf_cnpj;
 
@@ -44,19 +41,5 @@ class CadastroController extends Controller
                 header('Location: clientes');
             }
         }
-
-
-
-
-
-
-
-        // if (!empty($nome) && !empty($cpf_cnpj) && !empty($idade) && !empty($data) && strlen($cpf_cnpj) == '14') {
-        //     $cadastro->cadastrar($nome, $cpf_cnpj, $idade, $data);
-        //     header('Location: clientes');
-        // } else {
-        //     header('Location: cadastro');
-        //     echo 'Preencha todos os campos';
-        // }
     }
 }

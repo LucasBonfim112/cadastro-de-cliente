@@ -1,4 +1,4 @@
-//pesquisar
+
 initEventFind();
 
 
@@ -15,12 +15,7 @@ function formataCPF(cpf, lg) {
         return cpf.replace(/\D/g, '')
             .replace(/^(\d{2})(\d{3})?(\d{3})?(\d{4})?(\d{2})?/, "$1.$2.$3/$4-$5");
     }
-
-
-
-
 }
-
 
 function listar() {
     $.ajax({
@@ -39,7 +34,6 @@ function listar() {
     })
 }
 
-//excluir
 function excluir(e, idcliente) {
     e.preventDefault();
     Swal.fire({
