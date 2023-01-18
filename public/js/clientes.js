@@ -1,6 +1,4 @@
-
 initEventFind();
-
 
 $(document).ready(function () {
     listar()
@@ -27,7 +25,8 @@ function listar() {
             if (res != '') {
                 tab.html('');
                 $.each(res, function (i, el) {
-                    tab.append("<tr class='conteudo linha" + el.idcliente + "'><td><a href='editar?id=" + el.idcliente + "' type='button' style='color: blue;'><i class='bi bi-pencil'></i></a> </td><td>" + el.nome + "</td><td>" + formataCPF(el.cpf_cnpj, el.cpf_cnpj.length) + "</td><td>" + el.idade + "</td><td>" + el.nascimento + "</td><td><a onclick='excluir(event, " + el.idcliente + ")' type='button' style='color: red;'><i class='bi bi-trash'></i></a></td></tr> ")
+                    let dataFormatada = el.nascimento.split('-').reverse().join('/');
+                    tab.append("<tr class='conteudo linha" + el.idcliente + "'><td><a href='editar?id=" + el.idcliente + "' type='button' style='color: blue;'><i class='bi bi-pencil'></i></a> </td><td>" + el.nome + "</td><td>" + formataCPF(el.cpf_cnpj, el.cpf_cnpj.length) + "</td><td>" + el.idade + "</td><td id='campoData'>" + dataFormatada + "</td><td><a onclick='excluir(event, " + el.idcliente + ")' type='button' style='color: red;'><i class='bi bi-trash'></i></a></td></tr> ")
                 })
             }
         }
@@ -63,10 +62,6 @@ function excluir(e, idcliente) {
         }
     })
 }
-
-
-
-
 
 function initEventFind() {
     $('#buscar').keyup(function () {

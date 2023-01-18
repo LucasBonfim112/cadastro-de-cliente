@@ -31,7 +31,7 @@ class CadastroController extends Controller
 
             if (!empty($nome) && !empty($cpf_cnpj) && !empty($idade) && !empty($data) && strlen($cpf) == '11') {
                 $cadastro->cadastrar($nome, $cpf_cnpj, $idade, $data);
-                header('Location: 404');
+                header('Location: clientes');
             }
         } else if (strlen($cpf_cnpj) == '14') {
             $cnpj = $cpf_cnpj;

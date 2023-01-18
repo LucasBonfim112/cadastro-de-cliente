@@ -29,7 +29,6 @@
         </li>
         <li class="nav-item">
           <a class="nav-link  text-white" href="<?= $base; ?>/sair">Sair</a>
-
         </li>
       </ul>
     </nav>
