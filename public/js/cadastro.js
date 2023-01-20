@@ -1,24 +1,33 @@
-$("#cpfcnpj").keydown(function(){
+
+$("#cpf_cnpj").keydown(function () {
     try {
-        $("#cpfcnpj").unmask();
-    } catch (e) {}
+        $("#cpf_cnpj").unmask();
+    } catch (e) { }
 
-    var tamanho = $("#cpfcnpj").val().length;
+    var tamanho = $("#cpf_cnpj").val().length;
 
-    if(tamanho < 11){
-        $("#cpfcnpj").mask("999.999.999-99");
+    if (tamanho < 11) {
+        $("#cpf_cnpj").mask("999.999.999-99");
     } else {
-        $("#cpfcnpj").mask("99.999.999/9999-99");
+        $("#cpf_cnpj").mask("99.999.999/9999-99");
     }
 
-  
+
     var elem = this;
-    setTimeout(function(){
-       
+    setTimeout(function () {
+
         elem.selectionStart = elem.selectionEnd = 10000;
     }, 0);
-    
+
     var currentValue = $(this).val();
     $(this).val('');
     $(this).val(currentValue);
 });
+
+
+// let $t = document.getElementById('cpfcnpj');
+// $t.addEventListener('paste', function (event) {
+//     setTimeout(function () {
+//         this.value = this.value.replace(/^\s+|\s+$/g, '')
+//     }.bind(this), 0)
+// })

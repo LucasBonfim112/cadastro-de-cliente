@@ -11,7 +11,7 @@
             <input type="text" value="<?= $dados["nome"] ?>" id="inputEmail4" name="nome" placeholder="Seu Nome">
 
             <label for="inputPassword4">cpf ou cnpj</label>
-            <input type="text" value="<?= $dados["cpf_cnpj"] ?>" id="inputPassword4" name="cpf_cnpj" placeholder="cpf_cnpj">
+            <input id="cpfcnpj"type="text" + value="<?= $dados["cpf_cnpj"] ?>"  name="cpf_cnpj" placeholder="cpf_cnpj">
 
             <label for="inputAddress">idade</label>
             <input type="text" value="<?= $dados["idade"] ?>" id="inputAddress" name="idade" placeholder="idade">
@@ -23,4 +23,5 @@
         </form>
     </div>
 </main>
+<script defer src="js/cadastro.js"></script>
 <?php $render('footer'); ?>

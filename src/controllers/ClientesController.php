@@ -52,14 +52,19 @@ class ClientesController extends Controller
 
         $idcliente  = $_POST['idcliente'];
         $nome  = $_POST['nome'];
-        $cpf_cnpj  = $_POST['cpf_cnpj'];
+        $cpf_cnpj  = preg_replace('/\D/', '', $_POST['cpf_cnpj']);
         $idade  = $_POST['idade'];
         $data  = $_POST['data'];
 
-        $atualizar->atualizar($idcliente, $nome, $cpf_cnpj, $idade, $data);
 
-        $this->redirect('/clientes');
-
-
+        if (strlen($cpf_cnpj) == 14) {
+            $atualizar->atualizar($idcliente, $nome, $cpf_cnpj, $idade, $data);
+            $this->redirect('/clientes');
+        } else if (strlen($cpf_cnpj) == 11) {
+            $atualizar->atualizar($idcliente, $nome, $cpf_cnpj, $idade, $data);
+            $this->redirect('/clientes');
+        } else {
+            $this->redirect('/editar');
+        }
     }
 }

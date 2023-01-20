@@ -73,3 +73,57 @@ function initEventFind() {
         });
     });
 }
+
+$(document).ready(function () {
+    $('#cadastrar').on('click', function () {
+        let dados = {
+            nome: $('#nome').val(),
+            cpf_cnpj: $('#cpf_cnpj').val(),
+            idade: $('#idade').val(),
+            data: $('#data').val()
+        }
+        if (dados.cpf_cnpj) {
+            $.ajax({
+                url: base + '/validarCad',
+                type: "POST",
+                data: (dados),
+                success: function (res) {
+                    console.log(res)
+                    res = JSON.parse(res)
+                    if (res.existe) {
+                        Swal.fire({
+                            title: 'Atenção!',
+                            text: 'cpf ja esta sendo usado',
+                            icon: 'warning',
+                            confirmButtonText: 'OK!',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $("#cpf_cnpj").val("");
+                            }
+                        })
+                    } else {
+                        cadastrar(dados)
+                    }
+                }
+            });
+        } 
+    })
+})
+
+
+function cadastrar(dados) {
+    $.ajax({
+        type: "post",
+        url: base + '/cadastrar',
+        data: (
+            dados
+        ),
+        success: function (res) {
+            window.location = base + '/clientes'
+        }
+    })
+}
+
+
+
+

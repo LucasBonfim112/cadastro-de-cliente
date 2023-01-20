@@ -33,4 +33,20 @@ class Cadastro extends Model
                 $error->getMessage();
         }
     }
+
+    public function verificarCpf($cpf_cnpj)
+    {
+
+        try {
+            $sql = Database::getInstance()->prepare("
+            SELECT CASE WHEN EXISTS(select 1 from gazin.clientes where cpf_cnpj='$cpf_cnpj') then 1 else 0 end as existecpf
+           ");
+            $sql->execute();
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Throwable $error) {
+            return 'Falha ao cadastrar o cliente: ' .
+                $error->getMessage();
+        }
+    }
 }

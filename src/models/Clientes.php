@@ -78,13 +78,13 @@ class Clientes extends Model
             UPDATE 
                 gazin.clientes
             SET 
-                nome=' " . $nome . " ',cpf_cnpj=' " . $cpf_cnpj . " ',idade='" . $idade . " ', nascimento =' " . $data . " '
+                nome='".$nome."',cpf_cnpj='".$cpf_cnpj."',idade='".$idade."', nascimento='".$data ."'
             WHERE 
-                idcliente=" . $idcliente . "
+                idcliente=".$idcliente."
             ");
             $sql->execute();
             $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-           
+
             return $result;
         } catch (Throwable $error) {
             return 'Falha ao atualizar o cadastro do cliente: ' . $error->getMessage();

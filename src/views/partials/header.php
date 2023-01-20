@@ -13,7 +13,7 @@
     <nav class="navbar">
       <ul class="d-flex " style="justify-content: center;">
         <li>
-          <a class="nav-link navbar-brand  href=" #">Gazin</a>
+          <img src="img/gazin_logo.png" width="160px" class="nav-link navbar-brand"/>
         </li>
         <li class="nav-item">
           <a class="nav-link  " aria-current="page" href="<?= $base; ?>/cadastro">
