@@ -1,10 +1,19 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .fundo {
-    background: linear-gradient(to bottom, #3333ff 0%, #66ccff 100%);
+   background-color: #3737e1;
 }
 
 .tabela {
     text-align: center;
     background-color: white;
+}
+
+.fundo2 {
+    background: linear-gradient(to bottom, #3c3ced 0%, #3737e1 100%);
 }
 
 .tabelapos {
@@ -13,9 +22,35 @@
     margin-top: 120px;
 }
 
-/* menu */
+/* 
+header */
 
-.b {
-    margin: 0;
-    background-color: white;
+
+ul {
+    list-style-type: none;
+    margin:0px;
+    padding: 15px;
+    overflow: hidden;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-top: 14px;
+}
+
+.sair {
+    margin-left: 1400px;
+}
+
+li a:hover {
+    background-color: #111;
 }

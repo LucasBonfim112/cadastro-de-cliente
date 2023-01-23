@@ -9,26 +9,26 @@
 </head>
 
 <body class="fundo">
-  <header class="navbar navbar-dark sticky-top bg-dark  ">
-    <nav class="navbar">
-      <ul class="d-flex " style="justify-content: center;">
+  <header class="fundo2  ">
+    <nav>
+      <ul>
         <li>
-          <img src="img/gazin_logo.png" width="160px" class="nav-link navbar-brand"/>
+          <img src="img/gazin_logo.png" width="160px" />
         </li>
-        <li class="nav-item">
-          <a class="nav-link  " aria-current="page" href="<?= $base; ?>/cadastro">
+        <li>
+          <a class="  " aria-current="page" href="<?= $base; ?>/cadastro">
             <span> <i class="bi bi-card-text"></i></span>
             Cadastro
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " href="<?= $base; ?>/clientes">
+        <li>
+          <a class=" " href="<?= $base; ?>/clientes">
             <span><i class="bi bi-people-fill"></i></span>
             Clientes
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link  text-white" href="<?= $base; ?>/sair">Sair</a>
+        <li class="sair">
+          <a href="<?= $base; ?>/sair">Sair</a>
         </li>
       </ul>
     </nav>
