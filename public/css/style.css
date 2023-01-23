@@ -4,7 +4,7 @@
 }
 
 .fundo {
-   background-color: #3737e1;
+    background-color: #3737e1;
 }
 
 .tabela {
@@ -13,7 +13,7 @@
 }
 
 .fundo2 {
-    background: linear-gradient(to bottom, #3c3ced 0%, #3737e1 100%);
+    background: linear-gradient(to bottom, #4d4dff 0%, #3737e1 100%);
 }
 
 .tabelapos {
@@ -21,17 +21,13 @@
     margin: auto;
     margin-top: 120px;
 }
-
 /* 
 header */
-
-
 ul {
     list-style-type: none;
-    margin:0px;
+    margin: 0px;
     padding: 15px;
     overflow: hidden;
-
 }
 
 li {
