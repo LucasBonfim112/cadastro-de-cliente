@@ -6,7 +6,7 @@
 <body class="fundo">
     <div class=" position-absolute top-50 start-50 translate-middle">
         <div class="login">
-            <img src="<?= $base; ?>/img/gazin_logo.png" alt="img">
+            <img  src="<?= $base; ?>/img/atacado.png" alt="img">
             <form action="<?= $base; ?>/login_acao" class="formLogin" method="POST">
 
                 <input type="text" class="form-control" placeholder="usuario" name="login">

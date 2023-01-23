@@ -4,6 +4,9 @@
     margin-right: 50px;
 }
 
+.login img{
+    margin-bottom: 17px;
+}
 .formLogin input {
     border-radius: 10px;
     display: block;
