@@ -106,7 +106,7 @@ $(document).ready(function () {
                     }
                 }
             });
-        } 
+        }
     })
 })
 
@@ -124,6 +124,55 @@ function cadastrar(dados) {
     })
 }
 
+
+$(document).ready(function () {
+    $('#editar').on('click', function () {
+        let dados = {
+            idcliente: $("#idcliente").val(),
+            nome: $('#nome').val(),
+            cpf_cnpj: $('#cpfcnpj').val(),
+            idade: $('#idade').val(),
+            data: $('#data').val(),
+        }
+        if (dados.cpf_cnpj) {
+            $.ajax({
+                url: base + '/validarCad',
+                type: "POST",
+                data: (dados),
+                success: function (res) {
+                    res = JSON.parse(res)
+                    if (res.existe) {
+                        Swal.fire({
+                            title: 'Atenção!',
+                            text: 'cpf ja esta sendo usado',
+                            icon: 'warning',
+                            confirmButtonText: 'OK!',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $("#cpf_cnpj").val("");
+                            }
+                        })
+                    } else {
+                        editar(dados)
+                    }
+                }
+            });
+        }
+    })
+})
+
+function editar(dados) {
+    $.ajax({
+        type: "post",
+        url: base + '/atualizar',
+        data: (
+            dados
+        ),
+        success: function () {
+            window.location = base + '/clientes'
+        }
+    })
+}
 
 
 

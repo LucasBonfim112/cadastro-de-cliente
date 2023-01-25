@@ -18,13 +18,25 @@
         <li>
           <a class="  " aria-current="page" href="<?= $base; ?>/cadastro">
             <span> <i class="bi bi-card-text"></i></span>
-            Cadastro
+            Cadastro de Clientes
           </a>
         </li>
         <li>
           <a class=" " href="<?= $base; ?>/clientes">
             <span><i class="bi bi-people-fill"></i></span>
             Clientes
+          </a>
+        </li>
+        <li>
+          <a class=" " href="<?= $base; ?>/produtoscad">
+            <span><i class="bi bi-fan"></i></span>
+            Cadastro de Produto
+          </a>
+        </li>
+        <li>
+          <a class=" " href="<?= $base; ?>/produtos">
+            <span><i class="bi bi-bicycle"></i></span>
+            Produtos
           </a>
         </li>
         <li class="sair">
