@@ -22,3 +22,6 @@ $router->get('/listarProdutos', 'ProdutoController@listaProduto');
 $router->get('/editprod', 'ProdutoController@editarProduto');
 $router->post('/atualizarProd', 'ProdutoController@atualizarProd');
 $router->get('/excluir', 'ProdutoController@excluirProd');
+$router->post('/validarProd', 'ProdutoController@validarCadProd');
+$router->get('/vendas', 'VendaProdutosController@index');
+$router->post('/vender', 'VendaProdutosController@vender');

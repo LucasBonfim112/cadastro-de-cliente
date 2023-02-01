@@ -6,7 +6,7 @@
         <h2 class="text-center">Cadastro de Produto</h2>
         <form class="formCad" method="POST" action="">
 
-            <label for="inputPassword4">COD produto</label>
+            <label for="inputPassword4">Codigo do produto</label>
             <input type="text" class="" id="codigo" name="codigo" placeholder="codigo">
 
             <label for="inputEmail4">Nome do Produto</label>
@@ -20,6 +20,9 @@
 
             <label for="inputAddress2">quantidade do produto</label>
             <input type="text" class="" id="quantidade" name="quantidade" placeholder="quantidade">
+
+
+            
 
             <input id="cadastrar" type="button" class="btn btn-primary " value="cadastrar">
         </form>

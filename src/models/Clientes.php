@@ -15,11 +15,7 @@ class Clientes extends Model
         try {
             $sql = Database::getInstance()->prepare("
             SELECT
-                idcliente,
-                nome,
-                cpf_cnpj,
-                idade,
-                nascimento
+                *
             FROM 
                 gazin.clientes 
                 ");

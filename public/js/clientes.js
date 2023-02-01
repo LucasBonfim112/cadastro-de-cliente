@@ -160,7 +160,6 @@ $(document).ready(function () {
         }
     })
 })
-
 function editar(dados) {
     $.ajax({
         type: "post",

@@ -17,7 +17,7 @@
             <label for="inputAddress2">data de Nascimento</label>
             <input type="date" class="" id="data" name="data" placeholder="data nascimento">
 
-            <input id="cadastrar" type="button" class="btn btn-primary " value="cadastrar">
+            <input id="cadastrar" type="button" class="btn btn-primary " value="Cadastrar">
         </form>
     </div>
 </main>

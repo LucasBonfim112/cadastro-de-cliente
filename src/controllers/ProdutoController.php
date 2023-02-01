@@ -29,9 +29,21 @@ class ProdutoController extends Controller
 
         $res = $cadastro->cadastrar($codigo, $nome, $cor, $preco, $quantidade);
 
-
-
         echo json_encode($res);
+    }
+
+
+    public function validarCadProd()
+    {
+        $codigo = $_POST['codigo'];
+        $val = new Produto;
+        $dados = $val->verificarCod($codigo);
+
+        if ($dados[0]['existcod'] == 0) {
+            echo json_encode(['existe' => false]);
+        } else {
+            echo json_encode(['existe' => true]);
+        }
     }
 
     public function listaProduto()

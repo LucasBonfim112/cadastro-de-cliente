@@ -23,9 +23,24 @@ class Produto extends Model
                  '$cor', 
                 $preco,
                 $quantidade
-             )
+             ) ON CONFLICT ON CONSTRAINT produtos_pk DO NOTHING
     
             ");
+            $sql->execute();
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Throwable $error) {
+            return 'Falha ao cadastrar o produto: ' .
+                $error->getMessage();
+        }
+    }
+
+    public function verificarCod($codigo)
+    {
+        try {
+            $sql = Database::getInstance()->prepare("
+            SELECT CASE WHEN EXISTS(select 1 from gazin.produtos where codigo='$codigo') then 1 else 0 end as existcod
+           ");
             $sql->execute();
             $result = $sql->fetchAll(PDO::FETCH_ASSOC);
             return $result;
@@ -51,7 +66,6 @@ class Produto extends Model
             return 'Falha ao listar os produtos cadastrados: ' . $error->getMessage();
         }
     }
-
 
     public function editar()
     {
@@ -81,9 +95,9 @@ class Produto extends Model
             UPDATE 
                 gazin.produtos
             SET 
-                codigo='". $codigo ."',nome='". $nome ."',cor='". $cor ."' ,preco='". $preco ."', quantidade='". $quantidade ."'
+                codigo='" . $codigo . "',nome='" . $nome . "',cor='" . $cor . "' ,preco='" . $preco . "', quantidade='" . $quantidade . "'
             WHERE 
-                idproduto=". $idproduto ."
+                idproduto=" . $idproduto . "
             ");
             $sql->execute();
             $result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -111,5 +125,4 @@ class Produto extends Model
                 $error->getMessage();
         }
     }
-
 }

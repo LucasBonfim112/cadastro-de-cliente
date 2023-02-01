@@ -15,11 +15,15 @@
         <li>
           <img src="img/gazin_logo.png" width="160px" />
         </li>
+
         <li>
           <a class="  " aria-current="page" href="<?= $base; ?>/cadastro">
             <span> <i class="bi bi-card-text"></i></span>
             Cadastro de Clientes
           </a>
+        </li>
+        <li class="linha-vertical">
+
         </li>
         <li>
           <a class=" " href="<?= $base; ?>/clientes">
@@ -27,15 +31,21 @@
             Clientes
           </a>
         </li>
+        <li class="linha-vertical">
+
+        </li>
         <li>
           <a class=" " href="<?= $base; ?>/produtoscad">
-            <span><i class="bi bi-fan"></i></span>
+            <span><i class="bi bi-card-list"></i></span>
             Cadastro de Produto
           </a>
         </li>
+        <li class="linha-vertical">
+
+        </li>
         <li>
           <a class=" " href="<?= $base; ?>/produtos">
-            <span><i class="bi bi-bicycle"></i></span>
+            <span><i class="bi bi-fan"></i></span>
             Produtos
           </a>
         </li>

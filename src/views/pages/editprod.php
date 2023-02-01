@@ -8,7 +8,7 @@
 
             <label for="inputPassword4">COD produto</label>
             <input type="text" value="<?= $dados["idproduto"] ?>" id="idproduto" name="idproduto" hidden>
-            <input type="text" class="" value="<?= $dados["codigo"] ?>" id="codigo" name="codigo" placeholder="codigo">
+            <input type="text" class="" value="<?= $dados["codigo"] ?>" id="codigo" name="codigo" placeholder="codigo"  disabled="">
 
             <label for="inputEmail4">Nome do Produto</label>
             <input type="text" class="" value="<?= $dados["nome"] ?>" id="nome" name="nome" placeholder="Nome do produto">

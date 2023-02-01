@@ -1,3 +1,8 @@
+$(document).ready(function () {
+    $('.js-example-basic-single').select2();
+});
+
+
 initEventFind()
 $(document).ready(function () {
     listar()
@@ -25,11 +30,35 @@ $(document).ready(function () {
             preco: $('#preco').val(),
             quantidade: $('#quantidade').val()
         }
-        cadastrar(dados)
+        if (dados.codigo) {
+            $.ajax({
+                url: base + '/validarProd',
+                type: "POST",
+                data: (dados),
+                success: function (res) {
+                    res = JSON.parse(res)
+                    if (res.existe) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'ja existe um produto com esse codigo!',
+                            confirmButtonText: 'OK!',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $("#codigo").val("");
+                            }
+                        })
+                    } else {
+                        cadastrar(dados)
+                    }
+                }
+            })
+        }
     })
 })
 
 function listar() {
+
     $.ajax({
         type: 'get',
         url: 'listarProdutos',
@@ -37,13 +66,27 @@ function listar() {
             res = JSON.parse(res)
             tab = $('.tabb');
             if (res != '') {
+
                 tab.html('');
                 $.each(res, function (i, el) {
-                    tab.append("<tr class='conteudo linha" + el.idproduto + "'><td><a href='editprod?id=" + el.idproduto + "' type='button' style='color: blue;'><i class='bi bi-pencil'></i></a> </td><td>" + el.codigo + "</td><td>" + el.nome + "</td><td>" + el.cor + "</td><td>" + el.preco + "</td></td><td>" + el.quantidade + "</td><td><a onclick='excluir(event, " + el.idproduto + ")' type='button' style='color: red;'><i class='bi bi-trash'></i></a></td></tr> ")
+                    tab.append("<tr class='conteudo linha" + el.idproduto + "'><td><a href='editprod?id=" + el.idproduto + "' type='button' style='color: blue;'><i class='bi bi-pencil'></i></a> </td><td>" + el.codigo + "</td><td>" + el.nome + "</td><td>" + el.cor + "</td><td>R$" + el.preco + "</td></td><td class='qtd'>" + el.quantidade + "</td><td><a onclick='excluir(event, " + el.idproduto + ")' type='button' style='color: red;'><i class='bi bi-trash'></i></a></td><td><a class='venda' href='vendas?id=" + el.idproduto + "'><i class='bi bi-coin'></i></a></td></tr>")
+
                 })
+                verificaQtd()
             }
         }
     })
+}
+
+function verificaQtd() {
+    let qtds = $('.qtd');
+    let venda = $('.venda')
+    for (let qtd in qtds) {
+        if (qtds[qtd].innerText == 0) {
+            qtds[qtd].innerText = 'esgotado'
+            venda[qtd].innerText = ''
+        }
+    }
 }
 
 function editar(dados) {
@@ -67,14 +110,37 @@ $(document).ready(function () {
             nome: $('#nome').val(),
             cor: $('#cor').val(),
             preco: $('#preco').val(),
-            quantidade: $('#quantidade').val(),
+            quantidade: $('#quantidade').val()
         }
-        editar(dados)
+        if (dados.codigo) {
+            $.ajax({
+                url: base + '/validarProd',
+                type: "POST",
+                data: (dados),
+                success: function (res) {
+                    res = JSON.parse(res)
+                    if (res.existe) {
+                        Swal.fire({
+                            title: 'AVISO!',
+                            text: "Dejeja alterar isso?",
+                            icon: 'warning',
+                            showDenyButton: true,
+                            confirmButtonText: 'sim',
+                            denyButtonText: `não`,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                editar(dados)
+                            } else if (result.isDenied) {
+                            }
+                        })
+                    } else {
+                        editar(dados)
+                    }
+                }
+            })
+        }
     })
 })
-
-
-
 
 function excluir(e, idproduto) {
     e.preventDefault();
@@ -106,13 +172,6 @@ function excluir(e, idproduto) {
     })
 }
 
-
-
-
-
-
-
-
 function initEventFind() {
     $('#buscar').keyup(function () {
         var nomeFiltro = $(this).val().toLowerCase();
@@ -123,3 +182,26 @@ function initEventFind() {
         });
     });
 }
+
+
+
+
+$(document).ready(function () {
+    $('.js-example-basic-single').select2();
+    const valorproduto = $("#valor").val()
+
+    $("#quantidade").keyup(function () {
+        let qtd = $("#quantidade").val();
+        console.log(qtd)
+
+        if (parseInt(qtd) > 0 && !isNaN(qtd) && qtd != '') {
+
+            let calculo = qtd * valorproduto;
+            console.log(calculo)
+
+            // let calFormt = calculo.toLocaleString('pt-br', { minimumFractionDigits: 2 });
+            // console.log(calFormt)
+            $("#valor").val(calculo.toFixed(2))
+        }
+    });
+})

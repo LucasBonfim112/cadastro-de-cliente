@@ -13,6 +13,7 @@
                     <th scope="col">preço</th>
                     <th scope="col">quantidade</th>
                     <th scope="col">excluir</th>
+                    <th scope="col">Vender</th>
                 </tr>
             </thead>
             <tbody class="table-primary tabb tabs">
