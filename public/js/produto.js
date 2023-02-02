@@ -69,7 +69,7 @@ function listar() {
 
                 tab.html('');
                 $.each(res, function (i, el) {
-                    tab.append("<tr class='conteudo linha" + el.idproduto + "'><td><a href='editprod?id=" + el.idproduto + "' type='button' style='color: blue;'><i class='bi bi-pencil'></i></a> </td><td>" + el.codigo + "</td><td>" + el.nome + "</td><td>" + el.cor + "</td><td>R$" + el.preco + "</td></td><td class='qtd'>" + el.quantidade + "</td><td><a onclick='excluir(event, " + el.idproduto + ")' type='button' style='color: red;'><i class='bi bi-trash'></i></a></td><td><a class='venda' href='vendas?id=" + el.idproduto + "'><i class='bi bi-coin'></i></a></td></tr>")
+                    tab.append("<tr class='conteudo linha" + el.idproduto + "'><td><a href='editprod?id=" + el.idproduto + "' type='button' style='color: blue;'><i class='bi bi-pencil'></i></a> </td><td>" + el.codigo + "</td><td>" + el.nome + "</td><td>" + el.cor + "</td><td>R$" + el.preco + "</td></td><td class='qtd'>" + el.quantidade + "</td><td><a onclick='excluir(event, " + el.idproduto + ")' type='button' style='color: red;'><i class='bi bi-trash'></i></a></td></tr>")
 
                 })
                 verificaQtd()
@@ -78,13 +78,13 @@ function listar() {
     })
 }
 
+
 function verificaQtd() {
     let qtds = $('.qtd');
-    let venda = $('.venda')
+
     for (let qtd in qtds) {
         if (qtds[qtd].innerText == 0) {
             qtds[qtd].innerText = 'esgotado'
-            venda[qtd].innerText = ''
         }
     }
 }

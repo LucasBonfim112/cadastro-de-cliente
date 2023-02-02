@@ -20,21 +20,35 @@ class VendaProdutosController extends Controller
 
         $valor = $produto->ProdutoVenda(); //1
         $dados = $cliente->ListaCliente(); //2
-        $this->render('venderprod', ["dados" => $valor[0], "valor" => $dados]);
+
+        $this->render('venderprod', ["dados" => $valor, "valor" => $dados]);
     }
 
-    public function vender()
+    public function carrinho()
     {
-        $vender = new Vendas;
-        $codigo = $_POST["idproduto"];
-        $quantidade = $_POST["quantidade"];
-        $preco = $_POST["preco"];
-        $idcliente = $_POST["idcliente"];
 
-        if (!empty($preco) && !empty($quantidade)) {
-            $vender->vendido($quantidade, $preco, $idcliente, $codigo );
-            header("Location: produtos");
-            // $this->render("produtos");
-        }
+        //adicionar o pedido no carrinho
+        $vender = new Vendas;
+        $idsituacao = $_POST["idsituacao"];
+        $idcliente = $_POST["idcliente"];
+    }
+
+    public function finalizar_pedido()
+    {
+        //finalizar o pedido 
+
+    }
+
+
+    public function cancelar_pedido()
+    {
+        // cancelar o pedido / tirar todos os itens
+
+    }
+
+    public function tirarItem()
+    {
+        // remove apenas o item selecionado
+
     }
 }

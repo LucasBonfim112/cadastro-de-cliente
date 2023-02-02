@@ -23,5 +23,12 @@ $router->get('/editprod', 'ProdutoController@editarProduto');
 $router->post('/atualizarProd', 'ProdutoController@atualizarProd');
 $router->get('/excluir', 'ProdutoController@excluirProd');
 $router->post('/validarProd', 'ProdutoController@validarCadProd');
+
+
+
 $router->get('/vendas', 'VendaProdutosController@index');
-$router->post('/vender', 'VendaProdutosController@vender');
+
+$router->post('/fazerpedido', 'VendaProdutosController@carrinho');
+$router->post('/finalizarpedido', 'VendaProdutosController@finalizar_pedido');
+$router->post('/cancelarpedido', 'VendaProdutosController@cancelar_pedido');
+$router->post('/tiraritem', 'VendaProdutosController@tirarItem');

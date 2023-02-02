@@ -3,7 +3,7 @@
     <h2 class="text-center mt-5" style="color: white;">Produtos Cadastrados</h2>
     <div class="tabelapos">
         <table class="table tabela">
-            <input id="buscar" type="text" class="form-control"  placeholder="buscar">
+            <input id="buscar" type="text" class="form-control" placeholder="buscar">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">Editar</th>
@@ -13,14 +13,13 @@
                     <th scope="col">preço</th>
                     <th scope="col">quantidade</th>
                     <th scope="col">excluir</th>
-                    <th scope="col">Vender</th>
                 </tr>
             </thead>
             <tbody class="table-primary tabb tabs">
 
             </tbody>
         </table>
-
+        <a href="<?= $base ?>/vendas" class="btn btn-primary">Entrar</a>
     </div>
 </main>
 <?php $render('footer'); ?>

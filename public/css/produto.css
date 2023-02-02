@@ -35,8 +35,36 @@ form input {
     margin-bottom: 10px;
 }
 
-form select {
-    width: 100%;
-    background-color: transparent;
+.produtos {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 300px;
+    background-color: white;
+}
 
+.produtos input {
+    padding: 2px;
+    margin-top: 15px;
+    width: 80%;
+}
+
+.produtos a {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    display: block;
+}
+
+
+.carrinho {
+    margin: 10px;
+}
+
+
+.carrinho p {
+    display: flex;
+    margin: 10px;
 }
